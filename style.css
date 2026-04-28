@@ -1,143 +1,43 @@
-:root {
-    --bg: #f8fafc;
-    --header-bg: #ffffff;
-    --primary: #2563eb;
-    --boss-accent: #dc2626;
-    --text-dark: #0f172a;
-    --text-light: #64748b;
-    --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-
 body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    background-color: var(--bg);
-    color: var(--text-dark);
-    margin: 0;
-    padding: 0;
+    font-family: sans-serif;
+    background-color: white;
+    color: black;
+    padding: 20px;
 }
 
-.app-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+h1 {
+    margin: 0 0 10px 0;
 }
 
-header {
-    background: var(--header-bg);
-    padding: 30px;
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
-    margin-bottom: 40px;
+hr {
+    margin: 20px 0;
 }
 
-.brand h1 {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: 800;
-}
-
-.brand h1 span { color: var(--primary); }
-
-.brand p {
-    color: var(--text-light);
-    margin: 5px 0 25px 0;
-}
-
-.toolbar {
-    display: flex;
-    align-items: flex-end;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.control-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.control-item label {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-light);
-    text-transform: uppercase;
-}
-
-select {
-    padding: 10px 16px;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 1rem;
-    background: #fff;
-    cursor: pointer;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s;
-}
-
-.btn-primary:hover { opacity: 0.9; }
-
-/* Boss Toggle Customization */
-.toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-/* Grid & Cards */
 #game-board {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 .card {
-    background: white;
-    padding: 30px 20px;
-    border-radius: 12px;
+    border: 1px solid black;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    font-weight: 600;
-    box-shadow: var(--card-shadow);
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-    border: 2px solid transparent;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    padding: 5px;
 }
 
 .card.boss {
-    border-color: #fee2e2;
-    background: #fffafa;
-}
-
-.card.boss::before {
-    content: "BOSS CARD";
-    display: block;
-    font-size: 0.6rem;
-    color: var(--boss-accent);
-    margin-bottom: 8px;
-    letter-spacing: 1px;
+    font-weight: bold;
+    border-width: 3px;
 }
 
 .card.flipped {
-    background: #f1f5f9;
-    color: #cbd5e1;
-    box-shadow: none;
+    color: lightgray;
+    border-color: lightgray;
     text-decoration: line-through;
-    opacity: 0.6;
-    transform: scale(0.95);
-    border-color: transparent;
 }
