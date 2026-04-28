@@ -1,8 +1,49 @@
-body { font-family: sans-serif; background-color: #eef2f3; text-align: center; margin: 0; padding: 20px; }
-header { background: white; padding: 15px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-.controls { display: flex; justify-content: center; gap: 15px; align-items: center; flex-wrap: wrap; }
-#game-board { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; max-width: 1000px; margin: 0 auto; }
-.card { background-color: #3498db; color: white; height: 80px; display: flex; align-items: center; justify-content: center; border-radius: 8px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 0 #2980b9; transition: 0.1s; padding: 5px; }
-.card:active { transform: translateY(3px); box-shadow: none; }
-.card.flipped { background-color: #bdc3c7; color: #7f8c8d; box-shadow: none; text-decoration: line-through; opacity: 0.5; }
-.teacher-card { background-color: #9b59b6; box-shadow: 0 4px 0 #8e44ad; }
+body {
+    font-family: sans-serif;
+    background-color: white;
+    color: black;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0 0 10px 0;
+}
+
+.controls {
+    margin-bottom: 10px;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+#game-board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    border: 1px solid black;
+    width: 150px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px;
+    background-color: white;
+}
+
+.card.boss {
+    font-weight: bold;
+    border-width: 3px;
+}
+
+.card.flipped {
+    color: #ccc;
+    border-color: #ccc;
+    text-decoration: line-through;
+    background-color: #fafafa;
+}
