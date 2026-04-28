@@ -78,26 +78,24 @@ function initGame() {
     const classKey = document.getElementById('class-select').value;
     const includeTeachers = document.getElementById('teacher-toggle').checked;
     const board = document.getElementById('game-board');
-    
-    board.innerHTML = ''; 
-
-    let listToDisplay = allData[classKey] || [];
-
+    board.innerHTML = '';
+    let listToDisplay = allData[classKey];
     if (!includeTeachers) {
-        listToDisplay = listToDisplay.filter(p => p.role !== 'teacher');
+        listToDisplay = listToDisplay.filter(p => p.role === 'student');
     }
-
     listToDisplay.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
-        if (person.role === 'teacher') card.classList.add('boss');
+        if (person.role === 'teacher') card.classList.add('teacher-card');
         card.innerText = person.name;
-        
-        card.onclick = function() {
-            this.classList.toggle('flipped');
-        };
+        card.onclick = function() { this.classList.toggle('flipped'); };
         board.appendChild(card);
     });
+}
+
+function resetBoard() {
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => card.classList.remove('flipped'));
 }
 
 initGame();
