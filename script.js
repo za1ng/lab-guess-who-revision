@@ -36,7 +36,7 @@ const allData = {
         { name: "Sam R.", role: "student" }, { name: "Zain G.", role: "student" }
     ],
     maths: [
-        { name: "Mr Natufe", role: "teacher" }, { name: "Mr Olufodun", role: "teacher" },
+        { name: "Eugene Natufe", role: "teacher" }, { name: "Mr Olufodun", role: "teacher" },
         { name: "Denis A.", role: "student" }, { name: "Isaac B.", role: "student" },
         { name: "Eoin B.", role: "student" }, { name: "Max C.", role: "student" },
         { name: "Calin C.", role: "student" }, { name: "Alexandra D.", role: "student" },
