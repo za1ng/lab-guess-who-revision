@@ -1,72 +1,148 @@
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --primary: #3b82f6;
+    --boss-color: #ef4444;
+    --text-main: #1e293b;
+}
+
 body {
-    font-family: sans-serif;
-    background-color: #eef2f3;
-    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
     margin: 0;
     padding: 20px;
 }
 
 header {
+    max-width: 1000px;
+    margin: 0 auto 30px;
+    text-align: center;
     background: white;
-    padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
+
+h1 span { color: var(--primary); }
 
 .controls {
     display: flex;
     justify-content: center;
-    gap: 15px;
     align-items: center;
+    gap: 30px;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
-button, select {
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    cursor: pointer;
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+}
+
+select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
     background: white;
 }
 
+/* Toggle Switch Styling */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px; width: 14px;
+    left: 4px; bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: var(--boss-color); }
+input:checked + .slider:before { transform: translateX(18px); }
+
+.reset-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.reset-btn:active { transform: scale(0.95); }
+
+/* Grid and Cards */
 #game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 12px;
-    max-width: 1000px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 .card {
-    background-color: #3498db;
-    color: white;
-    height: 80px;
+    background: var(--card-bg);
+    height: 100px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: bold;
-    box-shadow: 0 4px 0 #2980b9;
-    transition: 0.1s;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    text-align: center;
     padding: 10px;
 }
 
-.card:active {
-    transform: translateY(3px);
-    box-shadow: none;
+.card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+.card.boss {
+    border: 2px solid var(--boss-color);
+    color: var(--boss-color);
+}
+
+.card.boss::after {
+    content: "BOSS";
+    font-size: 0.6rem;
+    background: var(--boss-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-top: 5px;
 }
 
 .card.flipped {
-    background-color: #bdc3c7;
-    color: #7f8c8d;
+    background-color: #e2e8f0;
+    color: #94a3b8;
     box-shadow: none;
     text-decoration: line-through;
-    opacity: 0.5;
-}
-
-.teacher-card {
-    background-color: #9b59b6;
-    box-shadow: 0 4px 0 #8e44ad;
+    opacity: 0.6;
+    transform: scale(0.95);
+    border-color: transparent;
 }
