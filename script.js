@@ -90,7 +90,7 @@ function initGame() {
     listToDisplay.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
-        if (person.role === 'teacher') card.classList.add('boss');
+        if (person.role === 'teacher') card.classList.add('teacher-card');
         card.innerText = person.name;
         
         card.onclick = function() {
