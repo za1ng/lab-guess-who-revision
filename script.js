@@ -74,27 +74,19 @@ const allData = {
     ]
 };
 
-let isLocked = false;
-
 function initGame() {
-    if (isLocked) return;
-
     const classKey = document.getElementById('class-select').value;
-    const includeTeachers = document.getElementById('teacher-toggle').checked;
     const board = document.getElementById('game-board');
-    
     board.innerHTML = ''; 
-    let listToDisplay = allData[classKey];
-    
-    if (!includeTeachers) {
-        listToDisplay = listToDisplay.filter(p => p.role === 'student');
-    }
+
+    const listToDisplay = allData[classKey] || [];
 
     listToDisplay.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
         if (person.role === 'teacher') card.classList.add('teacher-card');
         card.innerText = person.name;
+
         card.onclick = function() {
             this.classList.toggle('flipped');
         };
@@ -102,20 +94,5 @@ function initGame() {
     });
 }
 
-function lockSelection() {
-    isLocked = true;
-    document.getElementById('class-select').disabled = true;
-    document.getElementById('teacher-toggle').disabled = true;
-    document.getElementById('lock-status').innerText = "BOARD LOCKED - START GUESSING";
-}
-
-function resetBoard() {
-    isLocked = false;
-    document.getElementById('class-select').disabled = false;
-    document.getElementById('teacher-toggle').disabled = false;
-    document.getElementById('lock-status').innerText = "STATUS: SELECTING...";
-    initGame();
-}
-
-// Initial Run
+// Start the game board
 initGame();
