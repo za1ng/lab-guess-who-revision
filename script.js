@@ -100,11 +100,10 @@ function initGame() {
     });
 }
 
-// Attach event listeners explicitly to ensure "Include Teachers" works immediately
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('class-select').addEventListener('change', initGame);
     document.getElementById('teacher-toggle').addEventListener('change', initGame);
     document.getElementById('reset-btn').addEventListener('click', initGame);
     
-    initGame(); // Initial load
+    initGame();
 });
