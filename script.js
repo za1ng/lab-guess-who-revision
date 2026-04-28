@@ -76,25 +76,23 @@ const allData = {
 
 function initGame() {
     const classKey = document.getElementById('class-select').value;
-    const includeBoss = document.getElementById('teacher-toggle').checked;
+    const includeTeachers = document.getElementById('teacher-toggle').checked;
     const board = document.getElementById('game-board');
     
     board.innerHTML = ''; 
 
     let listToDisplay = allData[classKey] || [];
 
-    // Filter based on "Boss Card" (Teacher) toggle
-    if (!includeBoss) {
-        listToDisplay = listToDisplay.filter(person => person.role !== 'teacher');
+    if (!includeTeachers) {
+        listToDisplay = listToDisplay.filter(p => p.role !== 'teacher');
     }
 
     listToDisplay.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
         if (person.role === 'teacher') card.classList.add('boss');
-        
         card.innerText = person.name;
-
+        
         card.onclick = function() {
             this.classList.toggle('flipped');
         };
@@ -102,5 +100,4 @@ function initGame() {
     });
 }
 
-// Initial Run
 initGame();
