@@ -1,28 +1,26 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #0d0221; /* Deep space purple */
-    color: #00ffff; /* Neon Cyan */
-    text-align: center;
+    font-family: "Segoe UI", "Tahoma", sans-serif;
+    background-color: #d1d1d1; /* Classic OS gray */
+    color: #000;
     margin: 0;
     padding: 20px;
-    background-image: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), 
-                      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-    background-size: 100% 4px, 3px 100%; /* Fake CRT scanlines */
 }
 
 header {
-    background: #261447;
-    padding: 20px;
-    border: 4px solid #ff0055; /* Neon Pink */
-    border-radius: 0; 
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px #ff0055, inset 0 0 10px #ff0055;
+    background: #c0c0c0;
+    padding: 15px;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    margin-bottom: 25px;
+    box-shadow: 1px 1px 0 #000;
 }
 
 h1 {
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
-    letter-spacing: 5px;
-    text-shadow: 3px 3px #ff0055;
+    letter-spacing: 1px;
 }
 
 .controls {
@@ -31,68 +29,63 @@ h1 {
     gap: 15px;
     align-items: center;
     flex-wrap: wrap;
-    background: #1a0b2e;
-    padding: 10px;
 }
 
-/* 80s Arcade Buttons */
+/* Classic Button Style */
 button, select {
-    background: #00ffff;
-    color: #0d0221;
-    border: none;
-    padding: 10px 20px;
-    font-weight: bold;
-    text-transform: uppercase;
+    background: #c0c0c0;
+    border: 2px solid #ffffff;
+    border-right-color: #808080;
+    border-bottom-color: #808080;
+    padding: 5px 15px;
+    font-size: 0.9rem;
     cursor: pointer;
-    box-shadow: 4px 4px 0 #ff0055;
 }
 
 button:active {
-    box-shadow: none;
-    transform: translate(4px, 4px);
+    border: 2px solid #808080;
+    border-right-color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+#lock-status {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+    width: 100%;
 }
 
 #game-board {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 15px;
+    gap: 10px;
     max-width: 1000px;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 
 .card {
-    background-color: #1a0b2e;
-    color: #00ffff;
-    height: 100px;
+    background-color: #fff;
+    border: 1px solid #808080;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #00ffff;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.1s;
+    font-weight: 500;
     padding: 10px;
-    box-shadow: 4px 4px 0 #ff0055;
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.1);
 }
 
 .card.flipped {
-    background-color: #261447;
-    color: #444;
-    border-color: #444;
+    background-color: #ebebeb;
+    color: #a1a1a1;
+    border-style: dashed;
     box-shadow: none;
     text-decoration: line-through;
-    opacity: 0.4;
 }
 
 .teacher-card {
-    border-color: #ff0055;
-    color: #ff0055;
-}
-
-/* The Lock Status Box */
-#lock-status {
-    font-size: 1.2rem;
-    margin: 10px;
-    color: #ff0055;
-    text-shadow: 0 0 5px #ff0055;
+    background-color: #f9f9f9;
+    border-left: 5px solid #000080; /* Subtle blue indicator for teachers */
 }
