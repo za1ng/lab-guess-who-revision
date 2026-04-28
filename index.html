@@ -9,10 +9,13 @@
 <body>
     <div class="navbar">
         <div class="logo">Year 11</div>
-        <div class="nav-icons">
-            <span>🏠</span> <span>🔍</span> <span>🎬</span> <span>🛍️</span>
+        <div class="nav-links">
+            <span>HOME</span>
+            <span>SEARCH</span>
+            <span>RESOURCES</span>
+            <span>PORTAL</span>
         </div>
-        <div class="user-icon">👤</div>
+        <div class="user-icon">PROFILE</div>
     </div>
 
     <header>
@@ -24,9 +27,12 @@
                 <option value="maths">Maths (11B1)</option>
                 <option value="science">Science (11B1)</option>
             </select>
-            <button class="pill-btn reset" onclick="resetBoard()">Reset Game</button>
+            
+            <button class="pill-btn reset" onclick="resetBoard()">
+                <span class="arrow">→</span> Reset Board
+            </button>
         </div>
-        <div id="status-bar">CHOOSE YOUR CHARACTER TO START</div>
+        <div id="status-bar">READY</div>
     </header>
 
     <main id="game-board"></main>
