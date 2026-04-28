@@ -78,24 +78,33 @@ function initGame() {
     const classKey = document.getElementById('class-select').value;
     const includeTeachers = document.getElementById('teacher-toggle').checked;
     const board = document.getElementById('game-board');
-    board.innerHTML = '';
-    let listToDisplay = allData[classKey];
+    
+    board.innerHTML = ''; 
+
+    let listToDisplay = allData[classKey] || [];
+
     if (!includeTeachers) {
-        listToDisplay = listToDisplay.filter(p => p.role === 'student');
+        listToDisplay = listToDisplay.filter(p => p.role !== 'teacher');
     }
+
     listToDisplay.forEach(person => {
         const card = document.createElement('div');
         card.className = 'card';
-        if (person.role === 'teacher') card.classList.add('teacher-card');
+        if (person.role === 'teacher') card.classList.add('boss');
         card.innerText = person.name;
-        card.onclick = function() { this.classList.toggle('flipped'); };
+        
+        card.onclick = function() {
+            this.classList.toggle('flipped');
+        };
         board.appendChild(card);
     });
 }
 
-function resetBoard() {
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => card.classList.remove('flipped'));
-}
-
-initGame();
+// Attach event listeners explicitly to ensure "Include Teachers" works immediately
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('class-select').addEventListener('change', initGame);
+    document.getElementById('teacher-toggle').addEventListener('change', initGame);
+    document.getElementById('reset-btn').addEventListener('click', initGame);
+    
+    initGame(); // Initial load
+});
