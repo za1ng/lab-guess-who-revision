@@ -2,37 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Guess Who</title>
+    <title>Directory</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>LAB <span>Guess Who</span></h1>
-        <div class="controls">
-            <div class="filter-group">
-                <label for="class-select">Class:</label>
-                <select id="class-select" onchange="initGame()">
-                    <option value="geography">Geography (11B1)</option>
-                    <option value="english">English (11B1)</option>
-                    <option value="maths">Maths (11B1)</option>
-                    <option value="science">Science (11B1)</option>
-                </select>
-            </div>
+    <h1>School Directory</h1>
+    
+    <div>
+        Class: 
+        <select id="class-select" onchange="initGame()">
+            <option value="geography">Geography (11B1)</option>
+            <option value="english">English (11B1)</option>
+            <option value="maths">Maths (11B1)</option>
+            <option value="science">Science (11B1)</option>
+        </select>
 
-            <div class="filter-group">
-                <label class="switch">
-                    <input type="checkbox" id="teacher-toggle" onchange="initGame()" checked>
-                    <span class="slider"></span>
-                </label>
-                <span>Include Teachers</span>
-            </div>
+        <input type="checkbox" id="teacher-toggle" onchange="initGame()" checked> 
+        Include Teachers
 
-            <button class="reset-btn" onclick="initGame()">Reset Board</button>
-        </div>
-    </header>
+        <button onclick="initGame()">Reset</button>
+    </div>
 
-    <main id="game-board"></main>
+    <hr>
+
+    <div id="game-board"></div>
 
     <script src="script.js"></script>
 </body>
